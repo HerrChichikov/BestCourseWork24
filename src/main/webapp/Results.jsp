@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+    <%@page import="kurs24.CalcSum"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,6 @@
 </head>
 <body>
 	<h1>Итоговая стоимость</h1>
-	<p><strong>Итого:</strong> ${first}</p>
+	<p><strong>Итого:</strong> ${result}</p>
 </body>
 </html>
