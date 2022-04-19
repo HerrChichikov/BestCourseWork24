@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>Итоговая стоимость</h1>
-	<p><strong>Итого:</strong> ${result}</p>
+	<p><strong>Итого:</strong> ${first}</p>
 </body>
 </html>
