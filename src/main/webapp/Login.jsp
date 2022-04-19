@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Авторизация</h1>
-	<form action="Login" method="POST">
+	<form action="${pageContext.request.contextPath}/Login" method="POST">
     Логин: <input name="login" />
     <br><br>
     Пароль: <input name="password" />

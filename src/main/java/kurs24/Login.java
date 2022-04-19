@@ -16,7 +16,7 @@ public class Login extends HttpServlet {
 
 		LoginCheck log =LoginCheck.fromRequestParameters(request);
 		log.setAsRequestAttributesAndCheck(request);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/Success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 			dispatcher.forward(request, response);
 
 }
