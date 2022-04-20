@@ -31,11 +31,18 @@
 			<option id="1" value="1">ППУ</option>
 			<option id="2" value="2">ЛППУ</option>
 		</select> <br> <br> Тип доставки: <input type="radio" name="delivery"
-			id="1" value="1" checked />По Уфе <input type="radio" name="delivery"
-			id="2" value="2" />По республике <input type="radio" name="delivery"
-			id="3" value="3" />Самовывоз <br> <br>
+			id="1" value="1" checked />По Уфе <input type="radio"
+			name="delivery" id="2" value="2" />По республике <input type="radio"
+			name="delivery" id="3" value="3" />Самовывоз <br> <br>
 		<h2>Рассчитать</h2>
-		<br> <input type="submit" value="Submit" />
+		<br> <input type="Рассчитать" value="Submit" />
+
+	</form>
+
+	<form action="${pageContext.request.contextPath}/CreatePDF" method="post">
+
+		<br> <input type="CreatePDF" value="CreatePDF" />
+
 	</form>
 </body>
 </html>

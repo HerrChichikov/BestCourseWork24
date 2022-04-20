@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/CalcSum")
 public class CalcSum extends HttpServlet {
+	
 	protected static final long serialVersionUID = 1L;
 	protected static double result;
 	protected static int meters;
