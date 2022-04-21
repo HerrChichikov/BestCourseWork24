@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h1>Калькулятор расчета стоимости мебели</h1>
-	<form action="${pageContext.request.contextPath}/CalcSum" method="post">
+	<form action="${pageContext.request.contextPath}/PDF" method="post">
 		Тип мебели:<select name="type">
-			<option id="1" value="1">Банкетка</option>
+			<option name="Банкетка" value='${1}'>Банкетка</option>
 			<option id="2" value="2">Диван</option>
 			<option id="3" value="3">Кресло</option>
 			<option id="4" value="4">Стул</option>
@@ -35,14 +35,7 @@
 			name="delivery" id="2" value="2" />По республике <input type="radio"
 			name="delivery" id="3" value="3" />Самовывоз <br> <br>
 		<h2>Рассчитать</h2>
-		<br> <input type="Рассчитать" value="Submit" />
+		<br> <input type="Submit" value="Рассчитать" />
 
-	</form>
-
-	<form action="${pageContext.request.contextPath}/CreatePDF" method="post">
-
-		<br> <input type="CreatePDF" value="CreatePDF" />
-
-	</form>
 </body>
 </html>

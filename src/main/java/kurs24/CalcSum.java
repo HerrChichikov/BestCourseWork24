@@ -152,6 +152,12 @@ public class CalcSum extends HttpServlet {
 		calc.countCoef(type,size,material,category,filler,delivery);
 		calc.calculate(meters, fillerCof,price,delivery,deliveryPrice);
 		request.setAttribute("result", result);
+		request.setAttribute("type", type);               //
+		request.setAttribute("size", size);					//
+		request.setAttribute("material", material);       	//			нужно будет подумать 
+		request.setAttribute("category", category);				//
+		request.setAttribute("filler", filler);				//
+		request.setAttribute("delivery", delivery);				//
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		dispatcher.forward(request, response);

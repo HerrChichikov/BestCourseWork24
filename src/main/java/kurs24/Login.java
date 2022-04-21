@@ -74,6 +74,10 @@ public class Login extends HttpServlet {
 		 PrintWriter writer = response.getWriter();
 		 writer.println(last);
 		scanner.close();
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+		
 	}}
 		
 		

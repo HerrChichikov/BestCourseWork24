@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.stream.Stream;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -20,12 +25,16 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import kurs24.CalcSum.RequestCalc;
+
 
 public class CreatePDF {
 	
-	private BaseFont times = null;
+	private static BaseFont times = null;
 
-    public void Create() throws IOException {
+	
+	
+    public static void Create() throws IOException {
       	
     	Document document = new Document();
     	
@@ -37,9 +46,9 @@ public class CreatePDF {
 		for(int i=0;i<(lengthpath-1);i++) {
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/CreatePDF/Check.pdf";
-		String imagepath=abspath+"webapps/CreatePDF/picture/ugatu.png";
-		String fontpath =abspath+"webapps/CreatePDF/fonts/times.ttf";
+		filepath=abspath+"webapps/TestCourse/Check.pdf";
+		String imagepath=abspath+"webapps/TestCourse/picture/ugatu.png";
+		String fontpath =abspath+"webapps/TestCourse/fonts/times.ttf";
     	
 		try {	
 			PdfWriter.getInstance(document, new FileOutputStream(filepath));
@@ -80,30 +89,30 @@ public class CreatePDF {
 			}
     	
 	    
-	    Image img = null;
-		try {
-			img = Image.getInstance(imagepath);
-			
-			
-		} catch (BadElementException e2) {
-			
-			e2.printStackTrace();
-		} catch (MalformedURLException e2) {
-			
-			e2.printStackTrace();
-		} catch (IOException e2) {
-			
-			e2.printStackTrace();
-		}
-		
-		img.setAbsolutePosition(90, 500); 
-		
-		try {
-				document.add(img);
-			} catch (DocumentException e) {
-				e.printStackTrace();
-			}
-	    
+//	    Image img = null;
+//		try {
+//			img = Image.getInstance(imagepath);
+//			
+//			
+//		} catch (BadElementException e2) {
+//			
+//			e2.printStackTrace();
+//		} catch (MalformedURLException e2) {
+//			
+//			e2.printStackTrace();
+//		} catch (IOException e2) {
+//			
+//			e2.printStackTrace();
+//		}
+//		
+//		img.setAbsolutePosition(90, 500); 
+//		
+//		try {
+//				document.add(img);
+//			} catch (DocumentException e) {
+//				e.printStackTrace();
+//			}
+//	    
 
 		 paragraph.clear();
 		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
@@ -128,12 +137,12 @@ public class CreatePDF {
 	    document.close(); 
     }
     
-private void addRows(PdfPTable table) {
+private static void addRows(PdfPTable table) {
 		
-		String cell1 = String.valueOf(CalcSum.fillerCof);
-		String cell2 = String.valueOf(CalcSum.deliveryPrice);
-		String cell3 = String.valueOf(CalcSum.meters);
-		String cell4 = String.valueOf(CalcSum.price);
+		String cell1 = "Рустам";
+		String cell2 = "Лера";
+		String cell3 = "Эльнара";
+		String cell4 = "Ильгиз";
 				
 		table.addCell((new Phrase(cell1, new Font(times,14))));
 	    table.addCell((new Phrase(cell2, new Font(times,14))));
@@ -142,7 +151,7 @@ private void addRows(PdfPTable table) {
 		
 	}
 
-private void addHeader(PdfPTable table) {
+private static void addHeader(PdfPTable table) {
 	Stream.of("Номер", "Группа", "ФИО", "Оценка")
       .forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();

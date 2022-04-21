@@ -8,7 +8,11 @@
 <title>Итоговая стоимость</title>
 </head>
 <body>
-	<h1>Итоговая стоимость</h1>
+<h1>Итоговая стоимость</h1>
 	<p><strong>Итого:</strong> ${result}</p>
+	
+	<a href="${pageContext.request.contextPath}/Check.pdf"> Открыть PDF-файл</a>
+<a href="${pageContext.request.contextPath}/Check.pdf" download> Скачать PDF-файл</a>
+	
 </body>
 </html>
