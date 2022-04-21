@@ -130,10 +130,10 @@ public class CreatePDF {
     
 private void addRows(PdfPTable table) {
 		
-		String cell1 = Calc.NumberGet;
-		String cell2 = Calc.GroupGet;
-		String cell3 = Calc.FIOGet;
-		String cell4 = Calc.PointsGet;
+		String cell1 = String.valueOf(CalcSum.fillerCof);
+		String cell2 = String.valueOf(CalcSum.deliveryPrice);
+		String cell3 = String.valueOf(CalcSum.meters);
+		String cell4 = String.valueOf(CalcSum.price);
 				
 		table.addCell((new Phrase(cell1, new Font(times,14))));
 	    table.addCell((new Phrase(cell2, new Font(times,14))));
