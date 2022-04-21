@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class Registration
  */
-@WebServlet("/Registration")
+@WebServlet(name = "Registration", urlPatterns = "/Registration")
 public class Registration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,21 +35,12 @@ public class Registration extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, FileNotFoundException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/RegistrationJSP.jsp");
+		dispatcher.forward(request, response);
 
-		/*
-		 * response.setContentType("text/html"); PrintWriter writer =
-		 * response.getWriter();
-		 */
 
-		String login = request.getParameter("login");
-		String password = request.getParameter("password");
-
-		/*
-		 * File file = new File("logs"); PrintWriter pw = new PrintWriter(file);
-		 * pw.println(login); pw.println(password);
-		 */
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
- 	    dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+// 	    dispatcher.forward(request, response);
 		
 	}
 }

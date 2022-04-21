@@ -15,5 +15,10 @@
     <br><br>
     <input type="submit" value="Войти" />
 </form>
+
+<form action="${pageContext.request.contextPath}/Registration" method="POST">
+    <input type="submit"value="К регистрации">
+</form>
+
 </body>
 </html>
