@@ -16,9 +16,7 @@
     <input type="submit" value="Войти" />
 </form>
 
-<form action="${pageContext.request.contextPath}/Registration" method="POST">
-    <input type="submit"value="К регистрации">
-</form>
+<a href="/Calculate/RegistrationJSP.jsp">Регистрация</a>
 
 </body>
 </html>
