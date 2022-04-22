@@ -14,6 +14,8 @@
     Пароль: <input name="password" />
     <br><br>
     <input type="submit" value="Зарегистрироваться" />
+    <br><br>
+    <p>${message}</p>
 </form>
 </body>
 </html>
