@@ -141,23 +141,23 @@ public class CalcSum extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int type = Integer.parseInt(request.getParameter("type"));
+		String type = request.getParameter("type");
 		int size = Integer.parseInt(request.getParameter("size"));
 		int material = Integer.parseInt(request.getParameter("material"));
 		int category = Integer.parseInt(request.getParameter("category"));
 		int filler = Integer.parseInt(request.getParameter("filler"));
 		int delivery = Integer.parseInt(request.getParameter("delivery"));
-		
+		CreatePDF.Create(type);
 		RequestCalc calc = new RequestCalc();
-		calc.countCoef(type,size,material,category,filler,delivery);
+		//calc.countCoef(type,size,material,category,filler,delivery);
 		calc.calculate(meters, fillerCof,price,delivery,deliveryPrice);
 		request.setAttribute("result", result);
-		request.setAttribute("type", type);               //
+		request.setAttribute("type", type);                 // 
 		request.setAttribute("size", size);					//
 		request.setAttribute("material", material);       	//			нужно будет подумать 
-		request.setAttribute("category", category);				//
+		request.setAttribute("category", category);			//
 		request.setAttribute("filler", filler);				//
-		request.setAttribute("delivery", delivery);				//
+		request.setAttribute("delivery", delivery);			//
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		dispatcher.forward(request, response);

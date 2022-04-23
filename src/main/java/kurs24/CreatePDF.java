@@ -34,7 +34,7 @@ public class CreatePDF {
 
 	
 	
-    public static void Create() throws IOException {
+    public static void Create(String a) throws IOException {
       	
     	Document document = new Document();
     	
@@ -90,30 +90,30 @@ public class CreatePDF {
 			}
     	
 	    
-//	    Image img = null;
-//		try {
-//			img = Image.getInstance(imagepath);
-//			
-//			
-//		} catch (BadElementException e2) {
-//			
-//			e2.printStackTrace();
-//		} catch (MalformedURLException e2) {
-//			
-//			e2.printStackTrace();
-//		} catch (IOException e2) {
-//			
-//			e2.printStackTrace();
-//		}
-//		
-//		img.setAbsolutePosition(90, 500); 
-//		
-//		try {
-//				document.add(img);
-//			} catch (DocumentException e) {
-//				e.printStackTrace();
-//			}
-//	    
+	    Image img = null;
+		try {
+			img = Image.getInstance(imagepath);
+			
+			
+		} catch (BadElementException e2) {
+			
+			e2.printStackTrace();
+		} catch (MalformedURLException e2) {
+			
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			
+			e2.printStackTrace();
+		}
+		
+		img.setAbsolutePosition(90, 500); 
+		
+		try {
+				document.add(img);
+			} catch (DocumentException e) {
+				e.printStackTrace();
+			}
+	    
 
 		 paragraph.clear();
 		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
@@ -127,7 +127,7 @@ public class CreatePDF {
 
 		 PdfPTable table = new PdfPTable(4); 
 		 addHeader(table);
-		 addRows(table);
+		 addRows(table, a);
 		 
 		 try {
 			document.add(table);
@@ -138,9 +138,9 @@ public class CreatePDF {
 	    document.close(); 
     }
     
-private static void addRows(PdfPTable table) {
+private static void addRows(PdfPTable table, String a) {
 		
-		String cell1 = "Рустам";
+		String cell1 = a;
 		String cell2 = "Лера";
 		String cell3 = "Эльнара";
 		String cell4 = "Ильгиз";

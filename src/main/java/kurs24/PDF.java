@@ -15,7 +15,7 @@ public class PDF extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		CreatePDF.Create();
+	//	CreatePDF.Create();
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		dispatcher.forward(request, response);
