@@ -104,14 +104,12 @@ public class Registration extends HttpServlet {
 		User user = new User();
 		user.setLogin(request.getParameter("login"));
 		user.setPassword(request.getParameter("password"));
-		user.getLogin();
-		user.getPassword();
 		File file = new File(filepath);
 		String login = user.getLogin();
 		String password = user.getPassword();
 		request.setCharacterEncoding("UTF-8");
 		if (!IsUserExist(file,login)) {// Определяем, существует ли имя пользователя
-			WriteInFile(file, "un"+password);// Записываем имя пользователя
+			WriteInFile(file, "un"+login);// Записываем имя пользователя
             WriteInFile(file, "pw"+password);// Записываем пароль
             request.setAttribute("message","");
             request.getRequestDispatcher("/Login.jsp").forward(request, response);		

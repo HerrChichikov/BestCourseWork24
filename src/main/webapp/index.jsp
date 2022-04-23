@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Калькулятор расчета стоимости мебели</h1>
-	<form action="${pageContext.request.contextPath}/PDF" method="post">
+	<form action="${pageContext.request.contextPath}/CalcSum" method="post">
 		Тип мебели:<select name="type">
 			<option name="Банкетка" value='${1}'>Банкетка</option>
 			<option id="2" value="2">Диван</option>
