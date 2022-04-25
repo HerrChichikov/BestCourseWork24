@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Coefficient
  */
-@WebServlet("/Coefficient")
+
+@WebServlet(name = "Coefficient", urlPatterns = "/Coefficient")
+
 public class Coefficient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

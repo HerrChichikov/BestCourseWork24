@@ -82,7 +82,7 @@ public class Login extends HttpServlet {
 				if (br.readLine().equals("pw" + password)) {// Получив правильное имя пользователя, оцениваем
 															// правильность пароля
 					request.setAttribute("massage", "");
-					request.getRequestDispatcher("/index.jsp").forward(request, response);					
+					request.getRequestDispatcher("/AdminPanel.jsp").forward(request, response);					
 					b = 1;
 					break;
 				} else {

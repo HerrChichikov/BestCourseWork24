@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CalcSum
  */
-@WebServlet("/CalcSum")
+
+@WebServlet(name = "CalcSum", urlPatterns = "/CalcSum")
+
 public class CalcSum extends HttpServlet {
 	
 	protected static final long serialVersionUID = 1L;

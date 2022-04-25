@@ -36,6 +36,8 @@
 			name="delivery" id="3" value="3" />Самовывоз <br> <br>
 		<h2>Рассчитать</h2>
 		<br> <input type="Submit" value="Рассчитать" />
-
+    <br><br>
+    <p>${message}</p>
+    </form>
 </body>
 </html>

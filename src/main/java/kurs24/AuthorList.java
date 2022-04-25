@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class AuthorList
  */
-@WebServlet("/AuthorList")
+
+@WebServlet(name = "AuthorList", urlPatterns = "/AuthorList")
+
 public class AuthorList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
