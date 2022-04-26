@@ -40,6 +40,5 @@
 	<br>
 	<a href="/Calculate/CoefficientJSP.jsp">Изменить коэффициенты</a>
 	<br>
-	<a href="/Calculate/AdminRegistrationJSP.jsp">Зарегестрировать администратора</a>
 </body>
 </html>
