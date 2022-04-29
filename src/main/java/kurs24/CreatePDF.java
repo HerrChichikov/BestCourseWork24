@@ -34,7 +34,7 @@ public class CreatePDF {
 
 	
 	
-    public static void Create(String a) throws IOException {
+    public static void Create(String a,String b, String c, String d, String f, String g) throws IOException {
       	
     	Document document = new Document();
     	
@@ -125,9 +125,9 @@ public class CreatePDF {
 			}
 	    
 
-		 PdfPTable table = new PdfPTable(4); 
+		 PdfPTable table = new PdfPTable(6); 
 		 addHeader(table);
-		 addRows(table, a);
+		 addRows(table,a,b,c,d,f,g);
 		 
 		 try {
 			document.add(table);
@@ -138,22 +138,27 @@ public class CreatePDF {
 	    document.close(); 
     }
     
-private static void addRows(PdfPTable table, String a) {
+private static void addRows(PdfPTable table, String a, String b, String c, String d, String f, String g) {
 		
 		String cell1 = a;
-		String cell2 = "Лера";
-		String cell3 = "Эльнара";
-		String cell4 = "Ильгиз";
+		String cell2 = b;
+		String cell3 = c;
+		String cell4 = d;
+		String cell5 = f;
+		String cell6 = g;
 				
 		table.addCell((new Phrase(cell1, new Font(times,14))));
 	    table.addCell((new Phrase(cell2, new Font(times,14))));
+	    
 	    table.addCell((new Phrase(cell3, new Font(times,14))));
 	    table.addCell((new Phrase(cell4, new Font(times,14))));
+	    table.addCell((new Phrase(cell5, new Font(times,14))));
+	    table.addCell((new Phrase(cell6, new Font(times,14))));
 		
 	}
 
 private static void addHeader(PdfPTable table) {
-	Stream.of("Номер", "Группа", "ФИО", "Оценка")
+	Stream.of("Тип", "Размер", "Материал","Категория","Наполнитель", "Тип доставки")
       .forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();
         header.setBackgroundColor(BaseColor.LIGHT_GRAY);
