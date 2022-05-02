@@ -10,7 +10,7 @@
 	<h1>Авторизация</h1><br>
 	<form action="${pageContext.request.contextPath}/Login" method="POST"><br>
 		Логин: <input name="login" /> <br>
-		<br> Пароль: <input name="password" /> <br>
+		<br> Пароль: <input type="password" minlength="6" name="password" />
 		<br> <input type="submit" value="Войти" />
 	<br>
 	<a href="/Calculate/RegistrationJSP.jsp">Регистрация</a>

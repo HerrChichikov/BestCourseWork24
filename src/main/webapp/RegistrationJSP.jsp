@@ -9,9 +9,9 @@
 <body>
 	<h1>Регистрация</h1>
 	<form action="${pageContext.request.contextPath}/Registration" method="POST">
-    Логин: <input name="login" />
+    Логин: <input name="login" minlength="3"/>
     <br><br>
-    Пароль: <input name="password" />
+    Пароль(минимум 6 символов): <input type="password" minlength="6" name="password" />
     <br><br>
     <input type="submit" value="Зарегистрироваться" />
     <br><br>
