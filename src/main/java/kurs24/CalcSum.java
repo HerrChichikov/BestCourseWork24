@@ -1,6 +1,11 @@
 package kurs24;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -19,110 +24,141 @@ public class CalcSum extends HttpServlet {
 
 	protected static final long serialVersionUID = 1L;
 	protected static double result;
-	protected static int meters;
-	protected static int deliveryPrice;
-	protected static int price;
+	protected static double  meters;
+	protected static double  deliveryPrice;
+	protected static double  price;
 	protected static double fillerCof;
+	public String error = "";
 
 	protected class RequestCalc {
 
-		public void calculate(int x, double y, int a, int c) {
+		public void calculate(double  x, double y, double  a, double  c) {
 			result = x * y * a + c * (x / 2) * 1.8;
 		}
-
-		public void countCoef(String meb, String raz, String tip, String cat, String nap, String D) {
+	
+		public void countCoef(String meb, String raz, String tip, String cat, String nap, String D) throws IOException {
+			double[] coef = new double[29];
+			String filepath = new File("").getCanonicalPath();
+			String[] parsfilepath = filepath.split("/");
+			int lengthpath = parsfilepath.length;
+			String abspath = "";
+			for (int i = 0; i < (lengthpath - 1); i++) {
+			abspath = abspath + parsfilepath[i] + "/";
+			}
+			filepath = abspath + "webapps/Calculate/Coef.txt";
+			File file = new File(filepath);
+			FileInputStream fis = new FileInputStream(file);
+			InputStreamReader isr = new InputStreamReader(fis,"utf-8");
+			BufferedReader br = new BufferedReader(isr);
+			String line = "";
+			for(int i =0; i < 29; i+=1) {
+			line = br.readLine();
+			coef[i]=Double.parseDouble(line);
+			error = error + coef[i];
+			}
 			if (meb.equals(IndexArrays.types[0])) {
 				if (raz.equals(IndexArrays.sizes[0])) {
-					meters = 8;
+					meters = coef[0];
 				}
 				if (raz.equals(IndexArrays.sizes[1])) {
-					meters = 11;
+					meters = coef[1];
 				}
 				if (raz.equals(IndexArrays.sizes[2])) {
-					meters = 15;
+					meters = coef[2];
 				}
 			}
 			if (meb.equals(IndexArrays.types[1])) {
 				if (raz.equals(IndexArrays.sizes[0])) {
-					meters = 14;
+					meters = coef[3];
 				}
 				if (raz.equals(IndexArrays.sizes[1])) {
-					meters = 18;
+					meters = coef[4];
 				}
 				if (raz.equals(IndexArrays.sizes[2])) {
-					meters = 22;
+					meters = coef[5];
 				}
-//				if (raz == 4) {
-//				meters = 22;
-//				}
-//				if (raz == 5) {
-//				meters = 26;
-//				}
+//				
 			}
 			if (meb.equals(IndexArrays.types[2])) {
-				meters = 14;
+				if (raz.equals(IndexArrays.sizes[0])) {
+					meters = coef[6];
+				}
+				if (raz.equals(IndexArrays.sizes[1])) {
+					meters = coef[7];
+				}
+				if (raz.equals(IndexArrays.sizes[2])) {
+					meters = coef[8];
+				}
 			}
 			if (meb.equals(IndexArrays.types[3])) {
-				meters = 3;
+				if (raz.equals(IndexArrays.sizes[0])) {
+					meters = coef[9];
+				}
+				if (raz.equals(IndexArrays.sizes[1])) {
+					meters = coef[10];
+				}
+				if (raz.equals(IndexArrays.sizes[2])) {
+					meters = coef[11];
+				}
 			}
-//				if (meb == 5) {
-//				meters = 4;
-//				}
-//				if (meb == 6) {
-//				meters = 6;
-//				}
-//				if (meb == 7) {
-//				meters = 3;
-//				}
-//				if (meb == 8) {
-//				meters = 2;
-//				}
+//				
 			if (tip.equals(IndexArrays.materials[0])) {
 				if (cat.equals(IndexArrays.categories[0])) {
-					price = 210;
+					price = coef[12];
 				}
 				if (cat.equals(IndexArrays.categories[1])) {
-					price = 490;
+					price = coef[13];
 				}
 				if (cat.equals(IndexArrays.categories[2])) {
-					price = 910;
+					price = coef[14];
 				}
 			}
 			if (tip.equals(IndexArrays.materials[1])) {
 				if (cat.equals(IndexArrays.categories[0])) {
-					price = 803;
+					price = coef[15];
 				}
 				if (cat.equals(IndexArrays.categories[1])) {
-					price = 1355;
+					price = coef[16];
 				}
 				if (cat.equals(IndexArrays.categories[2])) {
-					price = 2300;
+					price = coef[17];
 				}
 			}
 			if (tip.equals(IndexArrays.materials[2])) {
 				if (cat.equals(IndexArrays.categories[0])) {
-					price = 320;
+					price = coef[18];
 				}
 				if (cat.equals(IndexArrays.categories[1])) {
-					price = 720;
+					price = coef[19];
 				}
 				if (cat.equals(IndexArrays.categories[2])) {
-					price = 1662;
+					price = coef[20];
 				}
 			}
+			if (tip.equals(IndexArrays.materials[2])) {
+				if (cat.equals(IndexArrays.categories[0])) {
+						price = coef[21];
+				}
+				if (cat.equals(IndexArrays.categories[1])) {
+						price = coef[22];
+				}
+				if (cat.equals(IndexArrays.categories[2])) {
+						price = coef[23];
+				}	
+			}
 			if (nap.equals(IndexArrays.fillers[0])) {
-				fillerCof = 1.1;
+				fillerCof = coef[24];
 			} else {
-				fillerCof = 1.2;
+				fillerCof =coef[25];
 			}
 			if (D.equals(IndexArrays.deliveries[0])) {
-				deliveryPrice = 300;
+				deliveryPrice = coef[26];
 			}
 			if (D.equals(IndexArrays.deliveries[1])) {
-				deliveryPrice = 600;
+				deliveryPrice = coef[27];
 			}
 			if (D.equals(IndexArrays.deliveries[2])) {
-				deliveryPrice = 0;
+				deliveryPrice = coef[28];
 			}
 		}
 	}
@@ -155,10 +191,10 @@ public class CalcSum extends HttpServlet {
 		calc.calculate(meters, fillerCof, price, deliveryPrice);
 		request.setAttribute("result", result);
 		request.setAttribute("delivery", delivery);
+		request.setAttribute("error", error);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		dispatcher.forward(request, response);
-
 	}
 
 }

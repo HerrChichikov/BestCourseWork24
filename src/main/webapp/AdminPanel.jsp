@@ -38,7 +38,9 @@
 		<br> <input type="Submit" value="Рассчитать" />
 	</form>
 	<br>
-	<a href="/Calculate/CoefficientJSP.jsp">Изменить коэффициенты</a>
+	<form action="${pageContext.request.contextPath}/Coefficient" method="post">
+		<input type="Submit" value="Изменить коэффициенты" />
+	</form>
 	<br>
 </body>
 </html>

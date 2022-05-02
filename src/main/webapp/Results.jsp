@@ -13,6 +13,6 @@
 	
 	<a href="${pageContext.request.contextPath}/Check.pdf"> Открыть PDF-файл</a>
 <a href="${pageContext.request.contextPath}/Check.pdf" download> Скачать PDF-файл</a>
-	
+	${error}
 </body>
 </html>
