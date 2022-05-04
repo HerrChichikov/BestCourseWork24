@@ -76,7 +76,9 @@ public class Login extends HttpServlet {
 		int b;
 		b = 0;
 		request.setCharacterEncoding("UTF-8");
-		if(!(login.equals("admin"))&&!(password.equals("123456"))) {
+		if((login.equals("admin"))&&(password.equals("123456"))) {
+			request.getRequestDispatcher("/AdminPanel.jsp").forward(request, response);		
+	}else {
 		while ((line = br.readLine()) != null) {//// Прочтите каждую строку br и обновляйте строку каждый раз
 			if (line.equals("un" + login)) {// Находим правильное имя пользователя
 
@@ -103,8 +105,6 @@ public class Login extends HttpServlet {
 			request.getRequestDispatcher("/Login.jsp").forward(request, response);
 
 		}
-	}else {
-		request.getRequestDispatcher("/AdminPanel.jsp").forward(request, response);
 	}
 	}
 }

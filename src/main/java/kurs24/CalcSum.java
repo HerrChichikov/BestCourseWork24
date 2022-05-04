@@ -33,7 +33,7 @@ public class CalcSum extends HttpServlet {
 	protected class RequestCalc {
 
 		public void calculate(double  x, double y, double  a, double  c) {
-			result = x * y * a + c * (x / 2) * 1.8;
+			result =( x * y * a + x/2 *515)* 1.8 + c;
 		}
 	
 		public void countCoef(String meb, String raz, String tip, String cat, String nap, String D) throws IOException {
@@ -135,7 +135,7 @@ public class CalcSum extends HttpServlet {
 					price = coef[20];
 				}
 			}
-			if (tip.equals(IndexArrays.materials[2])) {
+			if (tip.equals(IndexArrays.materials[3])) {
 				if (cat.equals(IndexArrays.categories[0])) {
 						price = coef[21];
 				}
@@ -191,10 +191,11 @@ public class CalcSum extends HttpServlet {
 		calc.calculate(meters, fillerCof, price, deliveryPrice);
 		request.setAttribute("result", result);
 		request.setAttribute("delivery", delivery);
-		request.setAttribute("error", error);
+		request.setAttribute("error", price);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
-		dispatcher.forward(request, response);
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
+		//dispatcher.forward(request, response);
+		request.getRequestDispatcher("/Results.jsp").forward(request, response);
 	}
 
 }
