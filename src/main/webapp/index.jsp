@@ -19,7 +19,8 @@ IndexArrays.setValues();
 					<h1 class="calc__title">Калькулятор расчета стоимости мебели</h1>
 					<form class="calc__form"
 						action="${pageContext.request.contextPath}/CalcSum" method="post">
-						<label for="type">Тип мебели:</label> <select class="calc__option"
+						<label for="type">Тип мебели:</label> 
+						<select class="calc__option"
 							name="type">
 							<option id="1"><%=IndexArrays.types[0]%></option>
 							<option id="2"><%=IndexArrays.types[1]%></option>
