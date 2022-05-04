@@ -22,7 +22,7 @@
 					<p>${message}</p>
 				</form>
 				</div>
-				<img class="intro__image" alt="reg" src="css/images/registration.png">
+				<img class="intro__image" alt="reg" src="css/images/reg.png">
 			</div>
 		</div>
 	</div>
