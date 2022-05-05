@@ -1,6 +1,33 @@
 package kurs24;
 
 public class IndexArrays {
+	
+	public static String[] types = new String[4];
+
+	public static String[] getTypes() {
+		return types;
+	}
+
+	public static String[] getSizes() {
+		return sizes;
+	}
+
+	public static String[] getMaterials() {
+		return materials;
+	}
+
+	public static String[] getCategories() {
+		return categories;
+	}
+
+	public static String[] getFillers() {
+		return fillers;
+	}
+
+	public static String[] getDeliveries() {
+		return deliveries;
+	}
+	
 	public static String [] types = new String[4];
 	public static String [] sizes = new String[4];
 	public static String [] materials = new String[4];
