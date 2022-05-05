@@ -2,7 +2,7 @@ package kurs24;
 
 public class IndexArrays {
 	
-	public static String[] types = new String[4];
+
 
 	public static String[] getTypes() {
 		return types;
@@ -28,7 +28,7 @@ public class IndexArrays {
 		return deliveries;
 	}
 	
-	public static String [] types = new String[4];
+	public static String[] types = new String[4];
 	public static String [] sizes = new String[4];
 	public static String [] materials = new String[4];
 	public static String [] categories = new String[4];
