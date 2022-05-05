@@ -29,13 +29,17 @@ public class CalcSum extends HttpServlet {
 	protected static double  price;
 	protected static double fillerCof;
 	public String error = "";
+	
+	public static Double calculate(double  x, double y, double  a, double  c) {
+		return ( x * y * a + x/2 *515)* 1.8 + c;
+	}
 
 	protected class RequestCalc {
-
+		
 		public void calculate(double  x, double y, double  a, double  c) {
 			result =( x * y * a + x/2 *515)* 1.8 + c;
 		}
-	
+		
 		public void countCoef(String meb, String raz, String tip, String cat, String nap, String D) throws IOException {
 			double[] coef = new double[29];
 			String filepath = new File("").getCanonicalPath();
