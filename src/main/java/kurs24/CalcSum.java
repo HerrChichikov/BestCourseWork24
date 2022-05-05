@@ -195,7 +195,7 @@ public class CalcSum extends HttpServlet {
 		calc.calculate(meters, fillerCof, price, deliveryPrice);
 		request.setAttribute("result", result);
 		request.setAttribute("delivery", delivery);
-		request.setAttribute("error", price);
+		
 
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		//dispatcher.forward(request, response);
