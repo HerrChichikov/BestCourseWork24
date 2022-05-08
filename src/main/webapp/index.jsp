@@ -19,8 +19,7 @@ IndexArrays.setValues();
 					<h1 class="calc__title">Калькулятор расчета стоимости мебели</h1>
 					<form class="calc__form"
 						action="${pageContext.request.contextPath}/CalcSum" method="post">
-						<label for="type">Тип мебели:</label> 
-						<select class="calc__option"
+						<label for="type">Тип мебели:</label> <select class="calc__option"
 							name="type">
 							<option id="1"><%=IndexArrays.types[0]%></option>
 							<option id="2"><%=IndexArrays.types[1]%></option>
@@ -53,7 +52,9 @@ IndexArrays.setValues();
 							<input type="radio" name="delivery" id="3" value="Самовывоз" /><%=IndexArrays.deliveries[2]%>
 						</div>
 						<input type="Submit" value="Рассчитать" />
+						<button type="button" name="back" onclick="history.back()">Выход</button>
 					</form>
+					
 				</div>
 			</div>
 		</div>

@@ -188,14 +188,14 @@ public class CalcSum extends HttpServlet {
 		String filler = request.getParameter("filler");
 		String delivery = request.getParameter("delivery");
 
-		CreatePDF.Create(type, size, material, category, filler, delivery);
 		RequestCalc calc = new RequestCalc();
 
 		calc.countCoef(type, size, material, category, filler, delivery);
 		calc.calculate(meters, fillerCof, price, deliveryPrice);
 		request.setAttribute("result", result);
 		request.setAttribute("delivery", delivery);
-		
+		String res =String.valueOf(result);  
+		CreatePDF.Create(type, size, material, category, filler, delivery, res);
 
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
 		//dispatcher.forward(request, response);

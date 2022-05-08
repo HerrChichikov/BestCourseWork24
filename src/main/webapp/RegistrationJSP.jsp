@@ -19,6 +19,7 @@
 					<label for="password">Пароль (минимум 6 символов)</label>
 					<input type="password" minlength="6" name="password" placeholder="Введите пароль..."/> 
 					<input type="submit" value="Зарегистрироваться" /> 
+					<a href="/Calculate/Login.jsp">Назад к авторизации</a>
 					<p>${message}</p>
 				</form>
 				</div>

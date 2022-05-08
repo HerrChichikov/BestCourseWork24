@@ -17,8 +17,8 @@ IndexArrays.setValues();
 			<div class="calc__inner">
 				<div class="calc__content">
 					<h1 class="calc__title">Панель администратора</h1>
-					<form class="calc__form" action="${pageContext.request.contextPath}/CalcSum"
-						method="post">
+					<form class="calc__form"
+						action="${pageContext.request.contextPath}/CalcSum" method="post">
 						<label for="type">Тип мебели:</label> <select class="calc__option"
 							name="type">
 							<option id="1"><%=IndexArrays.types[0]%></option>
@@ -52,12 +52,14 @@ IndexArrays.setValues();
 							<input type="radio" name="delivery" id="3" value="Самовывоз" /><%=IndexArrays.deliveries[2]%>
 						</div>
 						<input type="Submit" value="Рассчитать" />
+											<button type="button" name="back" onclick="history.back()">Выход</button>
 					</form>
 					<br>
 					<form action="${pageContext.request.contextPath}/Coefficient"
 						method="post">
 						<input type="Submit" value="Изменить коэффициенты" />
 					</form>
+
 				</div>
 			</div>
 		</div>

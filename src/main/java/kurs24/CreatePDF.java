@@ -34,7 +34,7 @@ public class CreatePDF {
 
 	
 	
-    public static void Create(String a,String b, String c, String d, String f, String g) throws IOException {
+    public static void Create(String a,String b, String c, String d, String f, String g, String j) throws IOException {
       	
     	Document document = new Document();
     	
@@ -49,6 +49,7 @@ public class CreatePDF {
 		filepath=abspath+"webapps/Calculate/Check.pdf";
 				
 		String imagepath=abspath+"webapps/Calculate/picture/ugatu.png";
+		String imagepath2=abspath+"webapps/Calculate/picture/raysmall.png";
 		String fontpath =abspath+"webapps/Calculate/fonts/times.ttf";
     	
 		try {	
@@ -66,13 +67,15 @@ public class CreatePDF {
 			e.printStackTrace();
 		}
 		
-		String string_pdf = "Информация по генерации PDF документа.";
+		String string_pdf = "Итоговая цена расчёта стоимости мягкой мебели";
 		Paragraph paragraph = new Paragraph();
-	    paragraph.add(new Paragraph(string_pdf, new Font(times,14)));
+	    paragraph.add(new Paragraph(string_pdf, new  Font(times,18)));
 	    
-	    String string_pdf2 = "Все работает как надо! Используйте в своих курсовых работах!";
+	    String string_pdf2 = "Для консультации обращайтесь по телефону: +79821724811";
 	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
 	
+
+	    
 	    try {
 			document.add(paragraph);
 		} catch (DocumentException e1) {
@@ -82,6 +85,9 @@ public class CreatePDF {
 		 paragraph.clear();
 		 String string_pdf3 = " ";
 		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
+		 
+		 
+
 		 
 		 try {
 				document.add(paragraph);
@@ -114,6 +120,29 @@ public class CreatePDF {
 				e.printStackTrace();
 			}
 	    
+		try {
+			img = Image.getInstance(imagepath2);
+			
+			
+		} catch (BadElementException e2) {
+			
+			e2.printStackTrace();
+		} catch (MalformedURLException e2) {
+			
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			
+			e2.printStackTrace();
+		}
+		
+		img.setAbsolutePosition(470, 740); 
+		
+		try {
+				document.add(img);
+			} catch (DocumentException e) {
+				e.printStackTrace();
+			}
+		
 
 		 paragraph.clear();
 		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
@@ -125,20 +154,24 @@ public class CreatePDF {
 			}
 	    
 
-		 PdfPTable table = new PdfPTable(6); 
+		 PdfPTable table = new PdfPTable(7); 
 		 addHeader(table);
-		 addRows(table,a,b,c,d,f,g);
+		 addRows(table,a,b,c,d,f,g, j);
 		 
 		 try {
 			document.add(table);
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-	    
+		 
+
+		 
+		 paragraph.clear();
+  
 	    document.close(); 
     }
     
-private static void addRows(PdfPTable table, String a, String b, String c, String d, String f, String g) {
+private static void addRows(PdfPTable table, String a, String b, String c, String d, String f, String g, String j) {
 		
 		String cell1 = a;
 		String cell2 = b;
@@ -146,24 +179,25 @@ private static void addRows(PdfPTable table, String a, String b, String c, Strin
 		String cell4 = d;
 		String cell5 = f;
 		String cell6 = g;
+		String cell7 = j;
 				
-		table.addCell((new Phrase(cell1, new Font(times,14))));
-	    table.addCell((new Phrase(cell2, new Font(times,14))));
-	    
-	    table.addCell((new Phrase(cell3, new Font(times,14))));
-	    table.addCell((new Phrase(cell4, new Font(times,14))));
-	    table.addCell((new Phrase(cell5, new Font(times,14))));
-	    table.addCell((new Phrase(cell6, new Font(times,14))));
+		table.addCell((new Phrase(cell1, new Font(times,13))));
+	    table.addCell((new Phrase(cell2, new Font(times,13))));    
+	    table.addCell((new Phrase(cell3, new Font(times,13))));
+	    table.addCell((new Phrase(cell4, new Font(times,13))));
+	    table.addCell((new Phrase(cell5, new Font(times,13))));
+	    table.addCell((new Phrase(cell6, new Font(times,13))));
+	    table.addCell((new Phrase(cell7, new Font(times,13))));
 		
 	}
 
 private static void addHeader(PdfPTable table) {
-	Stream.of("Тип", "Размер", "Материал","Категория","Наполнитель", "Тип доставки")
+	Stream.of("Тип", "Размер", "Материал","Категория","Наполнитель", "Тип доставки", "Итоговая цена")
       .forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();
         header.setBackgroundColor(BaseColor.LIGHT_GRAY);
         header.setBorderWidth(2);
-        header.setPhrase(new Phrase(columnTitle, new Font(times,14)));
+        header.setPhrase(new Phrase(columnTitle, new Font(times,13)));
         table.addCell(header);
     });
 }
