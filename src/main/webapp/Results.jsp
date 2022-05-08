@@ -17,11 +17,13 @@
 					<p>
 						<strong>Итого:</strong> ${result}
 					</p>
+						<a href="${pageContext.request.contextPath}/Check.pdf">
+							Открыть PDF-файл</a> <br><br>
+							<a href="${pageContext.request.contextPath}/Check.pdf" download>
+							Скачать PDF-файл</a> <br><br>
+						<button class="button__back" type="button" name="back"
+							onclick="history.back()">Назад</button>
 
-					<a href="${pageContext.request.contextPath}/Check.pdf"> Открыть
-						PDF-файл</a> <a href="${pageContext.request.contextPath}/Check.pdf"
-						download> Скачать PDF-файл</a> <br>
-					<button type="button" name="back" onclick="history.back()">Назад</button>
 				</div>
 				<img class="intro__image" alt="reg" src="css/images/results.png">
 			</div>

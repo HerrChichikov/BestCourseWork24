@@ -4,7 +4,6 @@ body {
 	margin: 0;
 	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
-	overflow: hidden;
 }
 
 * {
@@ -39,6 +38,23 @@ a:hover, a:active {
 	background-color: #244AD0;
 }
 
+
+.button__back{
+	background-color: #6782E7;
+	border:none;
+	color: white;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+		border-radius: 4px;
+}
+
+.button__back:hover {
+	background-color: #244AD0;
+}
+
 /* Intro */
 .intro {
 	margin-top: 15%;
@@ -65,6 +81,7 @@ a:hover, a:active {
 
 input {
 	height: 40px;
+	padding: 14px 25px;
 }
 
 input[type=submit] {

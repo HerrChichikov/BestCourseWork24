@@ -52,7 +52,7 @@ IndexArrays.setValues();
 							<input type="radio" name="delivery" id="3" value="Самовывоз" /><%=IndexArrays.deliveries[2]%>
 						</div>
 						<input type="Submit" value="Рассчитать" />
-						<button type="button" name="back" onclick="history.back()">Выход</button>
+						<a href="/Calculate/Login.jsp">Выход</a>
 					</form>
 					
 				</div>
