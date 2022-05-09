@@ -15,7 +15,7 @@
 				<div class="intro_frame">
 					<h1 class="intro__title">Итоговая стоимость</h1>
 					<p>
-						<strong>Итого:</strong> ${result}
+						<strong>Итого:</strong> ${result} рублей
 					</p>
 						<a href="${pageContext.request.contextPath}/Check.pdf">
 							Открыть PDF-файл</a> <br><br>
