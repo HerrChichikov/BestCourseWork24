@@ -69,7 +69,7 @@ public class CreatePDF {
 		
 		String string_pdf = "Итоговая цена расчёта стоимости мягкой мебели";
 		Paragraph paragraph = new Paragraph();
-	    paragraph.add(new Paragraph(string_pdf, new  Font(times,18)));
+	    paragraph.add(new Paragraph(string_pdf, new  Font(times,20)));
 	    
 	    String string_pdf2 = "Для консультации обращайтесь по телефону: +79821724811";
 	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
@@ -112,7 +112,7 @@ public class CreatePDF {
 			e2.printStackTrace();
 		}
 		
-		img.setAbsolutePosition(90, 500); 
+		img.setAbsolutePosition(90, 530); 
 		
 		try {
 				document.add(img);
@@ -180,24 +180,27 @@ private static void addRows(PdfPTable table, String a, String b, String c, Strin
 		String cell5 = f;
 		String cell6 = g;
 		String cell7 = j;
-				
-		table.addCell((new Phrase(cell1, new Font(times,13))));
-	    table.addCell((new Phrase(cell2, new Font(times,13))));    
-	    table.addCell((new Phrase(cell3, new Font(times,13))));
-	    table.addCell((new Phrase(cell4, new Font(times,13))));
-	    table.addCell((new Phrase(cell5, new Font(times,13))));
-	    table.addCell((new Phrase(cell6, new Font(times,13))));
-	    table.addCell((new Phrase(cell7, new Font(times,13))));
 		
+		
+		
+		
+		table.addCell((new Phrase(cell1, new Font(times,11))));
+	    table.addCell((new Phrase(cell2, new Font(times,11))));    
+	    table.addCell((new Phrase(cell3, new Font(times,11))));
+	    table.addCell((new Phrase(cell4, new Font(times,11))));
+	    table.addCell((new Phrase(cell5, new Font(times,11))));
+	    table.addCell((new Phrase(cell6, new Font(times,11))));
+	    table.addCell((new Phrase(cell7, new Font(times,11))));
+
 	}
 
 private static void addHeader(PdfPTable table) {
-	Stream.of("Тип", "Размер", "Материал","Категория","Наполнитель", "Тип доставки", "Итоговая цена")
+	Stream.of("Тип", "Размер", "Материал","Категория","Наполни-тель", "Тип доставки", "Итоговая цена (руб.)")
       .forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();
         header.setBackgroundColor(BaseColor.LIGHT_GRAY);
-        header.setBorderWidth(2);
-        header.setPhrase(new Phrase(columnTitle, new Font(times,13)));
+        header.setBorderWidth(1);
+        header.setPhrase(new Phrase(columnTitle, new Font(times,12)));
         table.addCell(header);
     });
 }

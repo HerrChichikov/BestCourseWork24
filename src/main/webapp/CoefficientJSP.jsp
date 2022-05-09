@@ -66,7 +66,7 @@
 						min="0" name="tipCloth11" value=${tipCloth11 } required> <br>
 					<br> Кожзам высшего качества: <input type="number" step="0.1"
 						min="0" name="tipCloth12" value=${tipCloth11 } required> <br>
-					<br> <strong>Коэфицент стоимости наполнителя:</strong> <br>
+					<br> <strong>Коэффициент стоимости наполнителя:</strong> <br>
 					<br> ППУ: <input name="tipNap1" type="number" step="0.1"
 						min="1" value=${tipNap1 } required> <br> <br>
 					ЛППУ: <input name="tipNap2" type="number" step="0.1" min="1"

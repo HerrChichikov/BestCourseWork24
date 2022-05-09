@@ -108,16 +108,22 @@ public class Registration extends HttpServlet {
 		String login = user.getLogin();
 		String password = user.getPassword();
 		request.setCharacterEncoding("UTF-8");
+		if ((!password.equals(""))&& (!login.equals(""))){
 		if (!IsUserExist(file,login)) {// Определяем, существует ли имя пользователя
+			
 			WriteInFile(file, "un"+login);// Записываем имя пользователя
             WriteInFile(file, "pw"+password);// Записываем пароль
             request.setAttribute("message","");
-            request.getRequestDispatcher("/Login.jsp").forward(request, response);		
+            request.getRequestDispatcher("/Login.jsp").forward(request, response);
+			
 		}else {
 			request.setAttribute("message","Введенное имя пользователя уже существует");
 			request.getRequestDispatcher("/RegistrationJSP.jsp").forward(request, response);	
 		}
-
+		}else {
+			request.setAttribute("message","Логин и пароль не должны быть пусты");
+			request.getRequestDispatcher("/RegistrationJSP.jsp").forward(request, response);
+		}
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 // 	    dispatcher.forward(request, response);
 		

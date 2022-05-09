@@ -194,7 +194,7 @@ public class CalcSum extends HttpServlet {
 		calc.calculate(meters, fillerCof, price, deliveryPrice);
 		request.setAttribute("result", result);
 		request.setAttribute("delivery", delivery);
-		String res =String.valueOf(result) + "рублей";  
+		String res =String.valueOf(result);  
 		CreatePDF.Create(type, size, material, category, filler, delivery, res);
 
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/Results.jsp");
